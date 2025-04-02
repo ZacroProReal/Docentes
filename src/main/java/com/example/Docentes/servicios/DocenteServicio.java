@@ -6,6 +6,8 @@ import com.example.Docentes.repositorios.DocenteRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DocenteServicio {
 
@@ -27,6 +29,10 @@ public class DocenteServicio {
         if (docenteRepositorio.save(docentes).getId() > 0)
             return docenteDto;
         else return null;
+    }
+    public List<Docente> obtenerTodos()
+    {
+        return docenteRepositorio.findAll();
     }
 }
 
